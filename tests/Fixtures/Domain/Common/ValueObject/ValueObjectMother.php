@@ -13,11 +13,11 @@ use App\Domain\Common\ValueObject\ElapsedTimeValue;
 
 final class ValueObjectMother
 {
-    public static function makeDistance(?int $value = null, ?string $unit = null): Distance
+    public static function makeDistance(?DistanceValue $value = null, ?DistanceUnit $unit = null): Distance
     {
         return new Distance(
-            self::makeDistanceValue($value),
-            self::makeDistanceUnit($unit)
+            $value,
+            $unit
         );
     }
 
@@ -31,11 +31,11 @@ final class ValueObjectMother
         return new DistanceValue($value ?? DistanceValue::MIN_VALUE);
     }
 
-    public static function makeElapsedTime(?int $value = null, ?string $unit = null): ElapsedTime
+    public static function makeElapsedTime(?ElapsedTimeValue $value = null, ?ElapsedTimeUnit $unit = null): ElapsedTime
     {
         return new ElapsedTime(
-            self::makeElapsedTimeValue($value),
-            self::makeElapsedTimeUnit($unit)
+            $value,
+            $unit
         );
     }
 
