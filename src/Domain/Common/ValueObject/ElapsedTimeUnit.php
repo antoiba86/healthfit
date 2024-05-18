@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Common\ValueObject;
 
-use App\Domain\Activity\Exception\DistanceUnitIsNotValidException;
-use App\Domain\Activity\Exception\ElapsedTimeUnitIsNotValidException;
+use App\Domain\Common\Exception\ElapsedTimeUnitIsNotValidException;
 
 final class ElapsedTimeUnit extends AbstractStringValueObject
 {

@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Activity\Exception;
+namespace App\Domain\Common\Exception;
 
-final class DistanceUnitIsNotValidException
+use Exception;
+
+final class DistanceUnitIsNotValidException extends Exception
 {
     private const MESSAGE = 'Distance unit is not valid';
 

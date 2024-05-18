@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Activity\Exception;
+namespace App\Domain\Common\Exception;
 
-final class ElapsedTimeUnitIsNotValidException
+use Exception;
+
+final class ElapsedTimeUnitIsNotValidException extends Exception
 {
     private const MESSAGE = 'Elapsed time unit is not valid';
 
