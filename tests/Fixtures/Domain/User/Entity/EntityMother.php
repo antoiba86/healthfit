@@ -9,6 +9,8 @@ use App\Domain\User\ValueObject\Age;
 use App\Domain\User\ValueObject\Height;
 use App\Domain\User\ValueObject\Weight;
 use App\Domain\Common\ValueObject\Distance;
+use App\Tests\Fixtures\Domain\Common\ValueObject\ValueObjectMother as CommonValueObjectMother;
+use App\Tests\Fixtures\Domain\User\ValueObject\ValueObjectMother;
 
 final class EntityMother
 {
@@ -25,6 +27,17 @@ final class EntityMother
             weigth: $weigth,
             age: $age,
             distance_goal: $distance_goal
+        );
+    }
+
+    public static function makeDefaultUser(): User
+    {
+        return self::makeUser(
+            1,
+            ValueObjectMother::makeHeight(),
+            ValueObjectMother::makeWeight(),
+            ValueObjectMother::makeAge(),
+            CommonValueObjectMother::makeDefaultDistance()
         );
     }
 }

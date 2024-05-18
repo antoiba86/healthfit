@@ -31,6 +31,14 @@ final class ValueObjectMother
         return new DistanceValue($value ?? DistanceValue::MIN_VALUE);
     }
 
+    public static function makeDefaultDistance(): Distance
+    {
+        return self::makeDistance(
+            self::makeDistanceValue(),
+            self::makeDistanceUnit()
+        );
+    }
+
     public static function makeElapsedTime(?ElapsedTimeValue $value = null, ?ElapsedTimeUnit $unit = null): ElapsedTime
     {
         return new ElapsedTime(

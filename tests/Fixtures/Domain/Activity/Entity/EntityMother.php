@@ -6,6 +6,7 @@ use App\Domain\Activity\Entity\Activity;
 use App\Domain\Activity\ValueObject\ActivityType;
 use App\Domain\Activity\ValueObject\Description;
 use App\Domain\Activity\ValueObject\Name;
+use App\Tests\Fixtures\Domain\Activity\ValueObject\ValueObjectMother;
 
 final class EntityMother
 {
@@ -20,6 +21,16 @@ final class EntityMother
             type: $activity_type,
             name: $name,
             description: $description
+        );
+    }
+
+    public static function makeDefaultActivity(): Activity
+    {
+        return self::makeActivity(
+            1,
+            ValueObjectMother::makeActivityType(),
+            ValueObjectMother::makeName(),
+            ValueObjectMother::makeDescription()
         );
     }
 }
