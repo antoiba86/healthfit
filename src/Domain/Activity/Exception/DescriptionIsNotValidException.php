@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Activity\Exception;
 
-final class DescriptionIsNotValidException
+use Exception;
+
+final class DescriptionIsNotValidException extends Exception
 {
     private const MESSAGE = 'Description is not valid';
 

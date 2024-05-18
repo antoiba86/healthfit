@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Activity\Exception;
 
-final class ActivityTypeIsNotValidException
+use Exception;
+
+final class ActivityTypeIsNotValidException extends Exception
 {
     private const MESSAGE = 'Activity type is not valid';
 
