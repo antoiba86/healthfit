@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Activity\Exception;
+namespace App\Domain\User\Exception;
 
-final class AgeIsNotValidException
+use Exception;
+
+final class AgeIsNotValidException extends Exception
 {
     private const MESSAGE = 'Age is not valid';
 

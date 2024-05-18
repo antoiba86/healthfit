@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Activity\Exception;
+namespace App\Domain\User\Exception;
 
-final class HeightIsNotValidException
+use Exception;
+
+final class HeightIsNotValidException extends Exception
 {
     private const MESSAGE = 'Height is not valid';
 

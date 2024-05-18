@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Activity\Exception;
+namespace App\Domain\User\Exception;
 
-final class WeightIsNotValidException
+use Exception;
+
+final class WeightIsNotValidException extends Exception
 {
     private const MESSAGE = 'Weight is not valid';
 
