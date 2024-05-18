@@ -7,7 +7,7 @@ namespace App\Domain\User\ValueObject;
 use App\Domain\Activity\Exception\WeightIsNotValidException;
 use App\Domain\Common\ValueObject\AbstractIntegerValueObject;
 
-final class Weight implements AbstractIntegerValueObject
+final class Weight extends AbstractIntegerValueObject
 {
     public const MIN_VALUE = 0;
 

@@ -6,7 +6,7 @@ namespace App\Domain\Common\ValueObject;
 
 use App\Domain\Activity\Exception\DistanceValueIsNotValidException;
 
-final class DistanceValue implements AbstractIntegerValueObject
+final class DistanceValue extends AbstractIntegerValueObject
 {
     public const MIN_VALUE = 0;
 

@@ -7,7 +7,7 @@ namespace App\Domain\User\ValueObject;
 use App\Domain\Activity\Exception\HeightIsNotValidException;
 use App\Domain\Common\ValueObject\AbstractIntegerValueObject;
 
-final class Height implements AbstractIntegerValueObject
+final class Height extends AbstractIntegerValueObject
 {
     public const MIN_VALUE = 0;
 

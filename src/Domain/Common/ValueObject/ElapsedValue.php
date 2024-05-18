@@ -7,7 +7,7 @@ namespace App\Domain\Common\ValueObject;
 use App\Domain\Activity\Exception\DistanceValueIsNotValidException;
 use App\Domain\Activity\Exception\ElapsedTimeValueIsNotValidException;
 
-final class ElapsedTimeValue implements AbstractIntegerValueObject
+final class ElapsedTimeValue extends AbstractIntegerValueObject
 {
     public const MIN_VALUE = 0;
 

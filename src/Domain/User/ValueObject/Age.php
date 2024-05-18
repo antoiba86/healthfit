@@ -7,7 +7,7 @@ namespace App\Domain\User\ValueObject;
 use App\Domain\Activity\Exception\AgeIsNotValidException;
 use App\Domain\Common\ValueObject\AbstractIntegerValueObject;
 
-final class Age implements AbstractIntegerValueObject
+final class Age extends AbstractIntegerValueObject
 {
     public const MIN_VALUE = 0;
 
