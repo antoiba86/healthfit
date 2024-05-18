@@ -31,7 +31,11 @@ final class User
         ?Age $age = null,
         ?Distance $distance_goal = null
     ) {
-        
+        $this->setId($id);
+        $this->setHeight($height);
+        $this->setWeigth($weigth);
+        $this->setAge($age);
+        $this->setDistanceGoal($distance_goal);
     }
 
     public function getId(): int
@@ -90,12 +94,12 @@ final class User
         $this->age = $age;
     }
 
-    public function getDistance_goal(): Distance
+    public function getDistanceGoal(): Distance
     {
         return $this->distance_goal;
     }
 
-    public function setDistance_goal($distance_goal): void
+    public function setDistanceGoal($distance_goal): void
     {
         if (is_null($distance_goal)) {
             throw RequiredFieldIsMissingException::makeByFieldName(self::DISTANCE_GOAL);

@@ -13,7 +13,7 @@ use App\Tests\Fixtures\Domain\Activity\Entity\EntityMother;
 use App\Tests\Fixtures\Domain\Activity\ValueObject\ValueObjectMother;
 use PHPUnit\Framework\TestCase as FrameworkTestCase;
 
-class ActivityTest extends FrameworkTestCase
+final class ActivityTest extends FrameworkTestCase
 {
     /**
      * @dataProvider createSuccessfullyProvider
