@@ -5,13 +5,15 @@ doctrine:
         use_savepoints: true
         types:
             activity_type: App\Infrastructure\Activity\Orm\Doctrine\CustomType\ActivityTypeCustomType
-            name: App\Infrastructure\Activity\Orm\Doctrine\CustomType\NameCustomType
-            description: App\Infrastructure\Activity\Orm\Doctrine\CustomType\DescriptionCustomType
             age: App\Infrastructure\User\Orm\Doctrine\CustomType\AgeCustomType
-            height: App\Infrastructure\User\Orm\Doctrine\CustomType\HeightCustomType
-            weight: App\Infrastructure\User\Orm\Doctrine\CustomType\WeightCustomType
+            description: App\Infrastructure\Activity\Orm\Doctrine\CustomType\DescriptionCustomType
             distance_value: App\Infrastructure\Common\Orm\Doctrine\CustomType\DistanceValueCustomType
             distance_unit: App\Infrastructure\Common\Orm\Doctrine\CustomType\DistanceUnitCustomType
+            elapsed_time_value: App\Infrastructure\Common\Orm\Doctrine\CustomType\ElapsedTimeValueCustomType
+            elapsed_time_unit: App\Infrastructure\Common\Orm\Doctrine\CustomType\ElapsedTimeUnitCustomType
+            height: App\Infrastructure\User\Orm\Doctrine\CustomType\HeightCustomType
+            name: App\Infrastructure\Activity\Orm\Doctrine\CustomType\NameCustomType
+            weight: App\Infrastructure\User\Orm\Doctrine\CustomType\WeightCustomType
 
     orm:
         auto_generate_proxy_classes: true
@@ -24,14 +26,26 @@ doctrine:
                 type: xml
                 dir: '%kernel.project_dir%/src/Infrastructure/Activity/Orm/Doctrine/Mapping'
                 prefix: 'App\Domain\Activity\Entity'
-            User:
-                type: xml
-                dir: '%kernel.project_dir%/src/Infrastructure/User/Orm/Doctrine/Mapping'
-                prefix: 'App\Domain\User\Entity'
             Distance:
                 type: xml
                 dir: '%kernel.project_dir%/src/Infrastructure/Common/Orm/Doctrine/Mapping'
                 prefix: 'App\Domain\Common\ValueObject'
+            ElapsedTime:
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Common/Orm/Doctrine/Mapping'
+                prefix: 'App\Domain\Common\ValueObject'
+            Session:
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Session/Orm/Doctrine/Mapping'
+                prefix: 'App\Domain\Session\Entity'
+            User:
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/User/Orm/Doctrine/Mapping'
+                prefix: 'App\Domain\User\Entity'
+            Tracking:
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Session/Orm/Doctrine/Mapping/ValueObject'
+                prefix: 'App\Domain\Session\ValueObject'
         controller_resolver:
             auto_mapping: true
 
