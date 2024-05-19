@@ -1,24 +1,54 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true
+        autoconfigure: true
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
+    _instanceof:
+        App\Infrastructure\Common\Bus\Command\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+        App\Infrastructure\Common\Bus\Query\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+  # Doctrine #
+    App\Infrastructure\Activity\Repository\DoctrineActivityRepository:
+        arguments:
+            - '@doctrine'
+
+  # UI / API #
+    App\WebApi\Activity\Controller\GetActivityController:
+        tags: [ 'controller.service_arguments' ]
+        arguments:
+            - '@App\WebApi\Activity\Converter\RequestToGetActivityQueryConverter'
+            - '@App\Infrastructure\Common\Bus\Query\QueryBus'
+
+    App\WebApi\Activity\Converter\RequestToGetActivityQueryConverter:
+
+  # Application #
+    App\Application\Activity\Query\GetActivity\GetActivityQueryHandler:
+        tags: [messenger.message_handler]
+        public: true
+        arguments:
+            - '@App\Infrastructure\Activity\Repository\DoctrineActivityRepository'
+
+    App\WebApi\Activity\Controller\CreateActivityController:
+        tags: [ 'controller.service_arguments' ]
+        arguments:
+            - '@App\WebApi\Activity\Converter\RequestToCreateActivityCommandConverter'
+            - '@App\Infrastructure\Common\Bus\Command\CommandBus'
+
+    App\WebApi\Activity\Converter\RequestToCreateActivityCommandConverter:
+
+    App\Application\Activity\Command\CreateActivity\CreateActivityCommandHandler:
+        public: true
+        arguments:
+            - '@App\Infrastructure\Activity\Repository\DoctrineActivityRepository'
+
+    App\Infrastructure\Common\Bus\Query\QueryBus:
+        public: true
+        class: App\Infrastructure\Common\Bus\Query\MessengerQueryBus
+
+    App\Infrastructure\Common\Bus\Command\CommandBus:
+        public: true
+        class: App\Infrastructure\Common\Bus\Command\MessengerCommandBus

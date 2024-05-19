@@ -22,7 +22,7 @@ final class DoctrineActivityRepository extends ServiceEntityRepository implement
         $this->getEntityManager()->persist($activity);
     }
 
-    public function getById(int $id): Activity
+    public function getById(int $id): ?Activity
     {
         return $this->getEntityManager()->find(Activity::class, $id);
     }
@@ -35,5 +35,11 @@ final class DoctrineActivityRepository extends ServiceEntityRepository implement
     public function getAll(): array
     {
         return $this->getEntityManager()->getRepository(Activity::class)->findAll();
+    }
+
+    public function getNextId(): int
+    {
+        $last_activity = $this->getEntityManager()->getRepository(Activity::class)->findOneBy([], ['id' => 'desc']);
+        return $last_activity?->getId() + 1 ?? 1;
     }
 }
