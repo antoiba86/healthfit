@@ -6,7 +6,7 @@ namespace App\Domain\Session\Entity;
 
 use App\Domain\Activity\Entity\Activity;
 use App\Domain\Common\Exception\RequiredFieldIsMissingException;
-use App\Domain\Session\Entity\Tracking;
+use App\Domain\Session\ValueObject\Tracking;
 use App\Domain\User\Entity\User;
 
 final class Session

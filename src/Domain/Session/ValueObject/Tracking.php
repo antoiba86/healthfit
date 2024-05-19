@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Session\Entity;
+namespace App\Domain\Session\ValueObject;
 
 use App\Domain\Common\Exception\RequiredFieldIsMissingException;
 use App\Domain\Common\ValueObject\Distance;
@@ -13,43 +13,25 @@ use DateTime;
 
 final class Tracking
 {
-    public const ID = 'id';
     public const DISTANCE = 'distance';
     public const INIT_DATE = 'init_date';
     public const FINISH_DATE = 'finish_date';
 
-    private int $id;
     private Distance $distance;
     private DateTime $init_date;
     private DateTime $finish_date;
     private ElapsedTime $elapsed_time;
 
     public function __construct(
-        ?int $id = null,
         ?Distance $distance = null,
         ?DateTime $init_date = null,
         ?DateTime $finish_date = null
     )
     {
-        $this->setId($id);
         $this->setDistance($distance);
         $this->setInitDate($init_date);
         $this->setFinishDate($finish_date);
         $this->setElapsedTime();
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId($id): void
-    {
-        if (is_null($id)) {
-            throw RequiredFieldIsMissingException::makeByFieldName(self::ID);
-        }
-
-        $this->id = $id;
     }
 
     public function getDistance(): Distance

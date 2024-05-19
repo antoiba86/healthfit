@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Tests\unit\Domain\Session\Entity;
 
 use App\Domain\User\Entity\User;
-use App\Domain\Session\Entity\Tracking;
+use App\Domain\Session\ValueObject\Tracking;
 use App\Domain\Activity\Entity\Activity;
 use App\Domain\Common\Exception\RequiredFieldIsMissingException;
 use App\Domain\Session\Entity\Session;
 use App\Tests\Fixtures\Domain\Activity\Entity\EntityMother as ActivityEntityMother;
 use App\Tests\Fixtures\Domain\Session\Entity\EntityMother;
+use App\Tests\Fixtures\Domain\Session\ValueObject\ValueObjectMother;
 use App\Tests\Fixtures\Domain\User\Entity\EntityMother as UserEntityMother;
 use PHPUnit\Framework\TestCase as FrameworkTestCase;
 
@@ -45,7 +46,7 @@ class SessionTest extends FrameworkTestCase
                 1,
                 UserEntityMother::makeDefaultUser(),
                 ActivityEntityMother::makeDefaultActivity(),
-                EntityMother::makeDefaultTracking()
+                ValueObjectMother::makeDefaultTracking()
             ]
         ];
     }
@@ -80,7 +81,7 @@ class SessionTest extends FrameworkTestCase
                 null,
                 UserEntityMother::makeDefaultUser(),
                 ActivityEntityMother::makeDefaultActivity(),
-                EntityMother::makeDefaultTracking()
+                ValueObjectMother::makeDefaultTracking()
             ],
             'user as null' => [
                 RequiredFieldIsMissingException::class,
@@ -88,7 +89,7 @@ class SessionTest extends FrameworkTestCase
                 1,
                 null,
                 ActivityEntityMother::makeDefaultActivity(),
-                EntityMother::makeDefaultTracking()
+                ValueObjectMother::makeDefaultTracking()
             ],
             'activity as null' => [
                 RequiredFieldIsMissingException::class,
@@ -96,7 +97,7 @@ class SessionTest extends FrameworkTestCase
                 1,
                 UserEntityMother::makeDefaultUser(),
                 null,
-                EntityMother::makeDefaultTracking()
+                ValueObjectMother::makeDefaultTracking()
             ],
             'tracking as null' => [
                 RequiredFieldIsMissingException::class,
