@@ -32,6 +32,21 @@ services:
         arguments:
             - '@App\Infrastructure\Activity\Repository\DoctrineActivityRepository'
 
+    App\WebApi\Activity\Controller\GetActivitiesController:
+        tags: [ 'controller.service_arguments' ]
+        arguments:
+            - '@App\WebApi\Activity\Converter\RequestToGetActivitiesQueryConverter'
+            - '@App\Infrastructure\Common\Bus\Query\QueryBus'
+
+    App\WebApi\Activity\Converter\RequestToGetActivitiesQueryConverter:
+
+  # Application #
+    App\Application\Activity\Query\GetActivities\GetActivitiesQueryHandler:
+        tags: [messenger.message_handler]
+        public: true
+        arguments:
+            - '@App\Infrastructure\Activity\Repository\DoctrineActivityRepository'
+
     App\WebApi\Activity\Controller\CreateActivityController:
         tags: [ 'controller.service_arguments' ]
         arguments:

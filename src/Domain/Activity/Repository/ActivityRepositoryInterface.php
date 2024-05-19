@@ -13,7 +13,7 @@ interface ActivityRepositoryInterface
 
     public function getById(int $id): ?Activity;
 
-    public function getListByActivityType(ActivityType $type): array;
+    public function getListByActivityType(string $type): array;
 
     public function getAll(): array;
 

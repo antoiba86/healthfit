@@ -22,6 +22,7 @@ framework:
             # 'App\Message\YourMessage': async
             'App\Application\Activity\Command\CreateActivity\CreateActivityCommandHandler': sync
             'App\Application\Activity\Query\GetActivity\GetActivityQueryHandler': sync
+            'App\Application\Activity\Query\GetActivities\GetActivitiesQueryHandler': sync
 
 # when@test:
 #    framework:

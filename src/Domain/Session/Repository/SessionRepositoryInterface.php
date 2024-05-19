@@ -10,5 +10,9 @@ interface SessionRepositoryInterface
 {
     public function save(Session $session): void;
 
-    public function getSessionById(int $session_id):  Session;
+    public function getById(int $id):  ?Session;
+        
+    public function getTotalDistanceAccumulatedByActivityType(string $activity_type): array;
+
+    public function getTotalElapsedTimeByActivityType(string $activity_type): array;
 }

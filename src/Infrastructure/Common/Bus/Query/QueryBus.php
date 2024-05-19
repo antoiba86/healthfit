@@ -6,5 +6,5 @@ namespace App\Infrastructure\Common\Bus\Query;
 
 interface QueryBus
 {
-    public function handle(Query $query) : Response|null;
+    public function handle(Query $query) : array|Response;
 }

@@ -7,6 +7,7 @@ namespace App\Infrastructure\Activity\Repository;
 use App\Domain\Activity\Entity\Activity;
 use App\Domain\Activity\Repository\ActivityRepositoryInterface;
 use App\Domain\Activity\ValueObject\ActivityType;
+use App\Domain\Session\Entity\Session;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -27,7 +28,7 @@ final class DoctrineActivityRepository extends ServiceEntityRepository implement
         return $this->getEntityManager()->find(Activity::class, $id);
     }
 
-    public function getListByActivityType(ActivityType $type): array
+    public function getListByActivityType(string $type): array
     {
         return $this->getEntityManager()->getRepository(Activity::class)->findBy(["activity_type" => $type]);
     }

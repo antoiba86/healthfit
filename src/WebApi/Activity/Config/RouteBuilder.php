@@ -6,6 +6,7 @@ namespace App\WebApi\Activity\Config;
 
 use App\Infrastructure\Common\Route\Symfony\RouteBuilderInterface;
 use App\WebApi\Activity\Controller\CreateActivityController;
+use App\WebApi\Activity\Controller\GetActivitiesController;
 use App\WebApi\Activity\Controller\GetActivityController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
@@ -15,6 +16,10 @@ final class RouteBuilder implements RouteBuilderInterface
     {
         $routes->add('api.activity.get', '/api/activities/{id}')
             ->controller(GetActivityController::class)
+            ->methods(['GET']);
+
+        $routes->add('api.activity.get', '/api/activities')
+            ->controller(GetActivitiesController::class)
             ->methods(['GET']);
 
         $routes->add('api.activity.post', '/api/activities')

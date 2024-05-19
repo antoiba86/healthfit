@@ -17,7 +17,7 @@ final class MessengerQueryBus implements QueryBus
     {
     }
 
-    public function handle(Query $query): Response
+    public function handle(Query $query): array|Response
     {
         return $this->handleQuery($query);
     }
