@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <embeddable name="App\Domain\Session\ValueObject\Tracking">
+    <embeddable name="App\Domain\Common\ValueObject\Tracking">
         <embedded name="elapsed_time" class="App\Domain\Common\ValueObject\ElapsedTime" />
         <embedded name="distance" class="App\Domain\Common\ValueObject\Distance" />
         <field name="init_date" type="datetime" />

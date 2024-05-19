@@ -44,8 +44,8 @@ doctrine:
                 prefix: 'App\Domain\User\Entity'
             Tracking:
                 type: xml
-                dir: '%kernel.project_dir%/src/Infrastructure/Session/Orm/Doctrine/Mapping/ValueObject'
-                prefix: 'App\Domain\Session\ValueObject'
+                dir: '%kernel.project_dir%/src/Infrastructure/Common/Orm/Doctrine/Mapping'
+                prefix: 'App\Domain\Common\ValueObject'
         controller_resolver:
             auto_mapping: true
 

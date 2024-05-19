@@ -19,6 +19,6 @@
             field="activity"
             target-entity="App\Domain\Activity\Entity\Activity">
         </one-to-one>
-        <embedded name="tracking" class="App\Domain\Session\ValueObject\Tracking" />
+        <embedded name="tracking" class="App\Domain\Common\ValueObject\Tracking" />
     </entity>
 </doctrine-mapping>

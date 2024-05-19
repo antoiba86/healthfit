@@ -6,7 +6,7 @@ namespace App\Tests\Fixtures\Domain\Session\Entity;
 
 use App\Domain\User\Entity\User;
 use App\Domain\Session\Entity\Session;
-use App\Domain\Session\ValueObject\Tracking;
+use App\Domain\Common\ValueObject\Tracking;
 use App\Domain\Activity\Entity\Activity;
 
 final class EntityMother

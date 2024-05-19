@@ -6,7 +6,7 @@ namespace App\Tests\Fixtures\Domain\Session\ValueObject;
 
 use DateTime;
 use App\Domain\Common\ValueObject\Distance;
-use App\Domain\Session\ValueObject\Tracking;
+use App\Domain\Common\ValueObject\Tracking;
 use App\Tests\Fixtures\Domain\Common\ValueObject\ValueObjectMother as CommonValueObjectMother;
 
 final class ValueObjectMother

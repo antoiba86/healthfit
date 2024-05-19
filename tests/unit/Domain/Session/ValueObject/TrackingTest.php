@@ -8,7 +8,7 @@ use App\Domain\Common\Exception\RequiredFieldIsMissingException;
 use DateTime;
 use App\Domain\Common\ValueObject\Distance;
 use App\Domain\Common\ValueObject\ElapsedTime;
-use App\Domain\Session\ValueObject\Tracking;
+use App\Domain\Common\ValueObject\Tracking;
 use App\Tests\Fixtures\Domain\Common\ValueObject\ValueObjectMother as CommonValueObjectMother;
 use PHPUnit\Framework\TestCase as FrameworkTestCase;
 use App\Tests\Fixtures\Domain\Session\ValueObject\ValueObjectMother;
