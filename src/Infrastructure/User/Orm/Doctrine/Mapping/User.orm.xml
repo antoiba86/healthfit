@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Domain\User\Entity\User"
+            table="users"
+            repository-class="App\Infrastructure\User\Repository\DoctrineUserRepository">
+        <id name="id" type="integer" column="id">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="height" type="height"/>
+        <field name="weight" type="weight"/>
+        <field name="age" type="age"/>
+        <embedded name="distance_goal" class="App\Domain\Common\ValueObject\Distance" />
+        <!-- <field name="distance_goal" type="distance"/> -->
+    </entity>
+</doctrine-mapping>

@@ -15,25 +15,25 @@ final class User
 {
     public const ID = 'id';
     public const HEIGHT = 'height';
-    public const WEIGHT = 'weigth';
+    public const WEIGHT = 'weight';
     public const AGE = 'age';
     public const DISTANCE_GOAL = 'distance_goal';
 
     private int $id;
     private Height $height;
-    private Weight $weigth;
+    private Weight $weight;
     private Age $age;
     private Distance $distance_goal;
     public function __construct(
         ?int $id = null,
         ?Height $height = null,
-        ?Weight $weigth = null,
+        ?Weight $weight = null,
         ?Age $age = null,
         ?Distance $distance_goal = null
     ) {
         $this->setId($id);
         $this->setHeight($height);
-        $this->setWeigth($weigth);
+        $this->setWeight($weight);
         $this->setAge($age);
         $this->setDistanceGoal($distance_goal);
     }
@@ -66,18 +66,18 @@ final class User
         $this->height = $height;
     }
 
-    public function getWeigth(): Weight
+    public function getWeight(): Weight
     {
-        return $this->weigth;
+        return $this->weight;
     }
 
-    public function setWeigth($weigth): void
+    public function setWeight($weight): void
     {
-        if (is_null($weigth)) {
+        if (is_null($weight)) {
             throw RequiredFieldIsMissingException::makeByFieldName(self::WEIGHT);
         }
 
-        $this->weigth = $weigth;
+        $this->weight = $weight;
     }
 
     public function getAge(): Age

@@ -23,21 +23,21 @@ final class UserTest extends FrameworkTestCase
     public function testCreateSuccessfully(
         ?int $id = null,
         ?Height $height = null,
-        ?Weight $weigth = null,
+        ?Weight $weight = null,
         ?Age $age = null,
         ?Distance $distance_goal = null
     ): void {
         $user = EntityMother::makeUser(
             id: $id,
             height: $height,
-            weigth: $weigth,
+            weight: $weight,
             age: $age,
             distance_goal: $distance_goal
         );
 
         $this->assertEquals($id, $user->getId());
         $this->assertEquals($height, $user->getHeight());
-        $this->assertEquals($weigth, $user->getWeigth());
+        $this->assertEquals($weight, $user->getWeight());
         $this->assertEquals($age, $user->getAge());
         $this->assertEquals($distance_goal, $user->getDistanceGoal());
     }
@@ -66,7 +66,7 @@ final class UserTest extends FrameworkTestCase
         string $expected_message,
         ?int $id = null,
         ?Height $height = null,
-        ?Weight $weigth = null,
+        ?Weight $weight = null,
         ?Age $age = null,
         ?Distance $distance_goal = null
     ): void {
@@ -75,7 +75,7 @@ final class UserTest extends FrameworkTestCase
         EntityMother::makeUser(
             id: $id,
             height: $height,
-            weigth: $weigth,
+            weight: $weight,
             age: $age,
             distance_goal: $distance_goal
         );

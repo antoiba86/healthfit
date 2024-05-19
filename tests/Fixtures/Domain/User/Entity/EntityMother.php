@@ -17,14 +17,14 @@ final class EntityMother
     public static function makeUser(
         ?int $id = null,
         ?Height $height = null,
-        ?Weight $weigth = null,
+        ?Weight $weight = null,
         ?Age $age = null,
         ?Distance $distance_goal = null
     ): User {
         return new User(
             id: $id,
             height: $height,
-            weigth: $weigth,
+            weight: $weight,
             age: $age,
             distance_goal: $distance_goal
         );
