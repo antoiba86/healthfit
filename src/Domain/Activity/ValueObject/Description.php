@@ -10,7 +10,7 @@ use App\Domain\Common\ValueObject\AbstractStringValueObject;
 final class Description extends AbstractStringValueObject
 {
     public const MIN_LENGTH = 1;
-    public const MAX_LENGTH = 100;
+    public const MAX_LENGTH = 255;
 
     protected function validate(string $value): void
     {

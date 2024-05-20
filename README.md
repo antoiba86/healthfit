@@ -36,5 +36,4 @@ The project only requires to have installed **Docker** and **Docker Compose** in
     ```
 
 6. Use the desired service.
-    - API. http://localhost:8000/api/doc
     - Adminer. http://localhost:8080/?server=mysql&username=root&db=storage
