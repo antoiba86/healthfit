@@ -12,9 +12,9 @@ final class RequestToGetActivitiesQueryConverter
 {
     public function execute(?Request $request): GetActivitiesQuery
     {
-        //$array = $request->toArray() ?? [];
+        $params = $request->query->all();
         return new GetActivitiesQuery(
-            //$array[Activity::ACTIVITY_TYPE] ?? null
+            activity_type: $params[Activity::ACTIVITY_TYPE] ?? null
         );
     }
 }

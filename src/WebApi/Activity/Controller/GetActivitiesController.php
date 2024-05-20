@@ -19,9 +19,9 @@ final class GetActivitiesController extends AbstractController
     ) {
     }
 
-    public function __invoke(): Response
+    public function __invoke(Request $request): Response
     {
-        $response = $this->bus->handle($this->request_converter->execute(null));
+        $response = $this->bus->handle($this->request_converter->execute($request));
 
         return new JsonResponse($response);
     }

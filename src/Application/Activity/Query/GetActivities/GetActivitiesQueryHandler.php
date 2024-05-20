@@ -6,6 +6,7 @@ namespace App\Application\Activity\Query\GetActivities;
 
 use App\Domain\Activity\Dto\ActivityDto;
 use App\Domain\Activity\Repository\ActivityRepositoryInterface;
+use App\Domain\Activity\ValueObject\ActivityType;
 use App\Infrastructure\Common\Bus\Query\QueryHandler;
 
 final class GetActivitiesQueryHandler implements QueryHandler
@@ -19,7 +20,13 @@ final class GetActivitiesQueryHandler implements QueryHandler
      */
     public function __invoke(GetActivitiesQuery $query): array
     {
-        $activities = $this->repository->getAll();
+        $activities = [];
+        if (!is_null($query->getActivityType())) {
+            $activity_type = new ActivityType($query->getActivityType());
+            $activities = $this->repository->getListByActivityType($activity_type);
+        } else {
+            $activities = $this->repository->getAll();
+        }
 
         return $this->makeActivityDtoArray($activities);
     }

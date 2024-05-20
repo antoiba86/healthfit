@@ -8,9 +8,6 @@ use App\Infrastructure\Common\Bus\Query\Query;
 
 final class GetActivitiesQuery implements Query
 {
-    /**
-     * @param string[]|null $types
-     */
     public function __construct(
         private readonly ?string $activity_type = null
     ) {
