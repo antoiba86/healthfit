@@ -24,13 +24,18 @@ final class EntityMother
         );
     }
 
-    public static function makeDefaultActivity(): Activity
+    public static function makeDefaultActivity(
+        ?int $id = null,
+        ?ActivityType $activity_type = null,
+        ?Name $name = null,
+        ?Description $description = null
+    ): Activity
     {
         return self::makeActivity(
-            1,
-            ValueObjectMother::makeActivityType(),
-            ValueObjectMother::makeName(),
-            ValueObjectMother::makeDescription()
+            $id ?? 1,
+            $activity_type ?? ValueObjectMother::makeActivityType(),
+            $name ?? ValueObjectMother::makeName(),
+            $description ?? ValueObjectMother::makeDescription()
         );
     }
 }
